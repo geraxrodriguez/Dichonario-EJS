@@ -6,7 +6,7 @@ require('dotenv').config()
 
 let db,
     dbConnectionStr = process.env.DB_STRING,
-    dbName = 'todo'
+    dbName = 'expressiones'
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
@@ -15,9 +15,14 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     })
 
 app.set('view engine','ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-app.get('/', (req, res)=>{
-    res.render('index.ejs')
+app.get('/', async (req, res)=>{
+    const expresiones = await db.collection('expresiones').find().toArray()
+    console.log(expresiones)
+    res.render('index.ejs', { expressions: expresiones })
 })
 
 app.listen(PORT, () => {
