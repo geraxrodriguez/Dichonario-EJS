@@ -9,20 +9,22 @@
     <h1>Bienvenidos a Expresiones Mexicanos. This is a collection of all those crazy mexican expressions we grew up hearing. I got the idea to do this when I was at a party and some friends could not stop cracking up at all the expressions. I hope you enjoy :) </h1>
     
     <!-- list -->
-    <ul class="expresiones">
-        <% for(let i = 0; i < expressions.length; i++){ %>
-            <li class="expression">
-                <span><%= expressions[i].expresion %></span>
+    <ul class="dichos">
+        <% for(let i = 0; i < dichos.length; i++){ %>
+            <li class="dicho">
+                <span><%= dichos[i].dicho %></span>
+                <span><%= dichos[i].literal %></span>
+                <span><%= dichos[i].actual %></span>
             </li>
         <% } %>
     </ul>
 
     <!-- submit form -->
-    <form action="/addExpression" method="POST">
+    <!-- <form action="/addExpression" method="POST">
         <input type="text" placeholder="Expression" name="expression">
         <input type="text" placeholder="Literal Meaning" name="literal-meaning">
         <input type="text" placeholder="Actual Meaning" name="actual-meaning">
         <input type="submit">
-    </form>
+    </form> -->
 </body>
 </html>

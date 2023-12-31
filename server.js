@@ -1,30 +1,21 @@
 const express = require('express')
 const app = express()
-const MongoClient = require('mongodb').MongoClient
-const PORT = 2121
-require('dotenv').config()
+const mongoose = require('mongoose')
+const connectDB = require('./config/database')
+const mainRoutes = require('./routes/main')
 
-let db,
-    dbConnectionStr = process.env.DB_STRING,
-    dbName = 'expressiones'
+require('dotenv').config({path: './config/.env'})
 
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
-    .then(client => {
-        console.log(`Connected to ${dbName} Database`)
-        db = client.db(dbName)
-    })
+connectDB()
 
 app.set('view engine','ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.get('/', async (req, res)=>{
-    const expresiones = await db.collection('expresiones').find().toArray()
-    console.log(expresiones)
-    res.render('index.ejs', { expressions: expresiones })
-})
+// routes
+app.use('/', mainRoutes)
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
+app.listen(process.env.PORT, () => {
+    console.log(`Server running on port ${process.env.PORT}`)
 })
