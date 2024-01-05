@@ -15,19 +15,19 @@
             <li class="dicho">
                 <h3><%= dichos[i].dicho %></h3
                 <br>
-                <span><%= dichos[i].literal %></span>
+                <span> Literal Meaning: <%= dichos[i].literal %></span>
                 <br>
-                <span><%= dichos[i].actual %></span>
+                <span> Actual Meaning: <%= dichos[i].actual %></span>
             </li>
         <% } %>
     </ul>
 
     <!-- submit form -->
-    <!-- <form action="/addExpression" method="POST">
-        <input type="text" placeholder="Expression" name="expression">
-        <input type="text" placeholder="Literal Meaning" name="literal-meaning">
-        <input type="text" placeholder="Actual Meaning" name="actual-meaning">
+    <form action="/addDicho" method="POST">
+        <input type="text" placeholder="Dicho" name="dicho">
+        <input type="text" placeholder="Literal Translation" name="literal">
+        <input type="text" placeholder="Actual Meaning" name="actual">
         <input type="submit">
-    </form> -->
+    </form>
 </body>
 </html>

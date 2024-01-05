@@ -11,7 +11,16 @@ module.exports = {
             console.error('Error fetching dichos:', err);
             res.status(500).send('Internal Server Error');
         }
-    }
+    },
+    addDicho: async (req, res) => {
+        try {
+            console.log('We reached the controlla')
+            await Dicho.create({ dicho: req.body.dicho, literal: req.body.literal, actual: req.body.actual })
+            res.redirect('/')
+        } catch (err) {
+            console.error(err)
+        }
+    },
 }
 
 // app.get('/', async (req, res)=>{
