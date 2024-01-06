@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
+const cors = require('cors')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -12,10 +13,11 @@ app.set('view engine','ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cors())
 
 // routes
 app.use('/', mainRoutes)
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log(`Server running on port ${process.env.PORT}`)
 })
