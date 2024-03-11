@@ -1,12 +1,15 @@
 const Dicho = require('../models/Dicho')
 
 module.exports = {
+    getIndex: (req, res) => {
+        res.render('index.ejs')
+    },
     getDichos: async (req, res) => {
         try {
             console.log('getting dichos...')
-            const dichoItems = await Dicho.find() // find method w/out args returns all documents in collection
-            console.log(dichoItems)
-            res.render('index.ejs', {dichos: dichoItems})
+            const dichos = await Dicho.find() // find method w/out args returns all documents in collection
+            console.log(dichos)
+            res.render('home.ejs', {dichos: dichos})
         } catch (err) {
             console.error('Error fetching dichos:', err);
             res.status(500).send('Internal Server Error');

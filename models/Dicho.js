@@ -15,7 +15,7 @@ const DichoSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('Dicho', DichoSchema, 'expresiones')
+module.exports = mongoose.model('Dicho', DichoSchema)
 
 // Define a model using the schema
 // Mongoose will look for a collection named 'books' by default

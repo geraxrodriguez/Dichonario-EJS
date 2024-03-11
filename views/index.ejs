@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Bienvenidos a Expresiones Mexicanos. This is a collection of all those crazy mexican expressions we grew up hearing. If you can think of anything, please submit one so I can include it. I hope you enjoy :) </h1>
-    
-    <!-- list -->
-    <ul class="dichos">
-        <% for(let i = 0; i < dichos.length; i++){ %>
-            <li class="dicho">
-                <h3><%= dichos[i].dicho %></h3
-                <br>
-                <span> Literal Meaning: <%= dichos[i].literal %></span>
-                <br>
-                <span> Actual Meaning: <%= dichos[i].actual %></span>
-            </li>
-        <% } %>
-    </ul>
+<%- include('partials/header') -%>
 
-    <!-- submit form -->
-    <!-- <form action="/addDicho" method="POST"> -->
-    <form>
-        <input type="text" placeholder="Dicho" name="dicho">
-        <input type="text" placeholder="Literal Translation" name="literal">
-        <input type="text" placeholder="Actual Meaning" name="actual">
-        <input type="submit">
-    </form>
-</body>
-</html>
+    <h1>Bienvenidos a Dichonario</h1>
+    <h1>A collection of all those crazy Mexican expressiones we love, enjoy, and sometimes barely understand haha!</h1>
+    <h1>Coming soon...</h1>
+
+<%- include('partials/footer') -%>

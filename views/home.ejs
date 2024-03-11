@@ -1,0 +1,27 @@
+<%- include('partials/header') -%>
+
+    <h1>Bienvenidos a Expresiones Mexicanos. This is a collection of all those crazy mexican expressions we grew up hearing. If you can think of anything, please submit one so I can include it. I hope you enjoy :) </h1>
+    
+    <!-- list -->
+    <ul class="dichos">
+        <% for(let i = 0; i < dichos.length; i++){ %>
+            <li class="dicho">
+                <h3><%= dichos[i].dicho %></h3
+                <br>
+                <span> Literal Meaning: <%= dichos[i].literal %></span>
+                <br>
+                <span> Actual Meaning: <%= dichos[i].actual %></span>
+            </li>
+        <% } %>
+    </ul>
+
+    <!-- submit form -->
+    <form action="/addDicho" method="POST">
+    <!-- <form> -->
+        <input type="text" placeholder="Dicho" name="dicho">
+        <input type="text" placeholder="Literal Translation" name="literal">
+        <input type="text" placeholder="Actual Meaning" name="actual">
+        <input type="submit">
+    </form>
+
+<%- include('partials/footer') -%>

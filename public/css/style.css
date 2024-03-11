@@ -31,7 +31,7 @@ body {
 	line-height: 1;
     background-color: #f8f8f8; /* Choose a light background color */
     font-family: 'Arial', sans-serif; /* Specify a preferred font family */
-    max-width: 800px;
+    /* max-width: 800px; */
     margin: 0 auto;
 }
 ol, ul {
