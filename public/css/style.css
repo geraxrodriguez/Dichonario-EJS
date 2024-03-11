@@ -14,7 +14,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, {
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -56,6 +56,9 @@ table {
 /***
 MY STYLING  
 ***/
+.dark-mode {
+  filter: invert(100%)
+}
 header {
   margin-top: 20px;
 }
@@ -81,6 +84,13 @@ nav ul li a {
   font-weight: bold; 
   font-size: large;
 }
+/* .fa-solid:hover {
+  cursor: pointer;
+}
+.fa-solid.fa-sun {
+  display: none;
+  color: white;
+} */
 
 
 button {
@@ -93,10 +103,18 @@ button {
   /* display: inline-block; */
   font-size: 16px;
   margin: 4px 0px;
-  cursor: default;
+  /* cursor: default; */
+  border-radius: 5px;
 }
-h1 {
+h1, h2 {
   text-align: center;
+}
+#main-header {
+  font-size: 80px;
+  font-weight: bold;
+}
+#mainText {
+  font-size: 20px;
 }
 
 .container {
@@ -105,41 +123,4 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 50vh;
-}
-
-.language-buttons {
-}
-
-.language-buttons button {
-  background-color: #4CAF50;
-  color: white;
-  /* border: none; */
-  padding: 10px 20px; /* Increase padding for a larger button */
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 5px; /* Add rounded corners */
-  transition: background-color 0.3s ease; /* Add transition effect */
-}
-
-.languages {
-    margin-top: 10px;
-    height: 100px; /* Fixed height for language content */
-    overflow: hidden; /* Hide overflow content */
-}
-.language-buttons button:hover {
-  background-color: #195c1c; /* Darker color on hover */
-}
-
-.languages div {
-  opacity: 0;
-  animation: fadeIn 2s forwards; /* Apply fadeIn animation */
-}
-
-@keyframes fadeIn {
-  from {
-      opacity: 0; /* Start with opacity 0 */
-  }
-  to {
-      opacity: 1; /* Transition to opacity 1 */
-  }
 }

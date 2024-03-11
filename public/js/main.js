@@ -1,40 +1,50 @@
-const h1 = document.getElementById('mainText')
-const span = document.getElementById('subText')
+const moonSun = document.querySelector('.fa-solid')
+const mainHeader = document.getElementById('main-header')
+const mainText = document.getElementById('mainText')
 const buttons = document.querySelector('.language-buttons')
-let text, subText;
+let text;
+
+// moon.addEventListener('click', () => {
+//     document.body.style.backgroundColor = 'black';
+//     mainHeader.style.color = 'white'
+//     mainText.style.color = 'white'
+//     moon.style.display = 'none';
+//     sun.style.display = 'block'
+// })
+// sun.addEventListener('click', () => {
+//     document.body.style.backgroundColor = 'white';
+//     mainHeader.style.color = 'black'
+//     // mainText.style.color = 'white'
+    // moon.style.display = 'block';
+//     sun.style.display = 'none'
+// })
+
+function toggle() {
+    console.log('toggle toggle')
+    moonSun.classList.toggle('fa-moon')
+    moonSun.classList.toggle('fa-sun')
+    document.documentElement.classList.toggle('dark-mode')
+}
 
 // event listeners will assign either ES or EN to text depending on which button is clicked
 // then, both call showText func, passing in our text variable
-document.getElementById('es').addEventListener('click', async () => {
-    text = 'Una colección de coloquialismos mexicanos.';
-    // subText = 'próximamente...'
-    await showText(text)
-    // showsubText(subText)
+document.getElementById('es').addEventListener('click', () => {
+    text = 'Una colección de coloquialismos mexicanos. Próximamente...';
+    showText(text)
 })
 document.getElementById('en').addEventListener('click', () => {
-    text = 'A collection of Mexican colloquialisms.';
-    // subText = 'coming soon...'
+    text = 'A collection of Mexican colloquialisms. Coming soon...';
     showText(text)
-    // showsubText(subText)
 })
 
 function showText(text, i = 0) {
     buttons.style.display = 'none';
 
     if (i === 0) {
-        h1.textContent = '';
+        mainText.textContent = '';
     }
 
     if (i === text.length) { return; }
-    h1.textContent += text[i];
+    mainText.textContent += text[i];
     setTimeout(() => showText(text, (i + 1)), 55)   
 }
-// function showsubText(subtext, i = 0) {
-//     if (i === 0) {
-//         span.textContent = '';
-//     }
-
-//     if (i === subtext.length) { return; }
-//     span.textContent += subtext[i];
-//     setTimeout(() => showsubText(subtext, (i + 1)), 55)   
-// }

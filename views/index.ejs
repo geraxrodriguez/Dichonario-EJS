@@ -28,7 +28,8 @@
     <header>
         <nav>
             <ul>
-                <li> <i class="fa-solid fa-moon"></i> </li>
+                <li> <i class="fa-solid fa-moon" onclick="toggle()"></i> </li>
+                <!-- <li> <i class="fa-solid fa-sun" onclick="toggle()"></i> </li> -->
                 <!-- <li> <a href="">DichoOTD</a> </li>
                 <li> <a href="">DichoDelDia</a> </li> -->
             </ul>
@@ -37,31 +38,16 @@
 
     <main>
       <div class="container">
-
-          <!-- <h1>Bienvenidos to Dichonario</h1> -->
-
+        <h1 id="main-header">Bienvenidos to Dichonario</h1>
           <!-- buttons ES | EN -->
           <div class="language-buttons">
               <button id="es">ES</button>
               <button id="en">EN</button>
           </div>
-
-          <!-- text -->
-          <!-- <div class="languages">
-              <div id="en">
-                  <h1>A collection of Mexican colloquialisms.</h1>
-                  <span>coming soon...</span>
-              </div>
-              <div id="es">
-                  <h1>Una colección de coloquialismos mexicanos.</h1>
-                  <span>próximamente...</span>
-              </div>
-          </div> -->
           <div class='text'>
-            <h1 id="mainText"></h1>
-            <span id="subText"></span>
+            <h2 id="mainText"></h2>
           </div>
-
+          <!-- end buttons ES | EN -->
       </div>
     </main>
 
