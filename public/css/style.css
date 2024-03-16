@@ -68,7 +68,9 @@ button {
   margin: 4px 0px;
   cursor: default;
 }
-
+h1 {
+  text-align: center;
+}
 #en, #es {
   display: none;
   text-align: center;
