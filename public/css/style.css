@@ -11,112 +11,110 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+time, mark, audio, video, {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
-body {
-	line-height: 1;
-    background-color: #f8f8f8; /* Choose a light background color */
-    font-family: 'Arial', sans-serif; /* Specify a preferred font family */
-    /* max-width: 800px; */
-    margin: 0 auto;
+
+body, html {
+  height: 100%;
+  margin: 0;
 }
+
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
+
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: "";
+  content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/**** ****/
-/* Style the main heading */
-h1 {
-    color: #333; /* Choose your preferred text color */
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold; /*  */
-    text-transform: uppercase; /* convert heading text to uppercase */
-    max-width: 400px;
-    margin: 0 auto;
+/***
+MY STYLING  
+***/
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 16px;
+  margin: 4px 0px;
+  cursor: default;
 }
 
-/* Style list items */
-.dichos li {
-    border: 1px solid #ccc; /* Add a border for separation */
-    padding: 10px;
-    /* margin-bottom: 5px; */
+#en, #es {
+  display: none;
+  text-align: center;
 }
 
-.dichos li:hover {
-    background-color: #e0e0e0; /* change background color on hover */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }
 
-/* Style the heading inside list items */
-.dichos li h3 {
-    color: #0066cc; /* Choose a color for the heading */
-    margin-bottom: 10px;
+.language-buttons {
 }
 
-/* Style spans inside list items */
-.dichos li span {
-    display: block;
-    /* margin-bottom: 5px; */
+.language-buttons button {
+  background-color: #4CAF50;
+  color: white;
+  /* border: none; */
+  padding: 10px 20px; /* Increase padding for a larger button */
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px; /* Add rounded corners */
+  transition: background-color 0.3s ease; /* Add transition effect */
 }
 
-/* Style the first span differently if needed */
-.dichos li .span1 {
-    color: #cc0000; /* Choose a color for the first span */
-    font-weight: bold;
+.languages {
+    margin-top: 10px;
+    height: 100px; /* Fixed height for language content */
+    overflow: hidden; /* Hide overflow content */
+}
+.language-buttons button:hover {
+  background-color: #195c1c; /* Darker color on hover */
 }
 
-form {
-    max-width: 600px;
-    margin: 20px auto;
+.languages div {
+  opacity: 0;
+  animation: fadeIn 2s forwards; /* Apply fadeIn animation */
 }
 
-input[type='text'] {
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type='submit'] {
-    background-color: #007bff; /* Choose a button color */
-    color: #fff; /* text color for button */
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type='submit']:hover {
-    background-color: #0056b3;
-}
-
-ul.dichos {
-    margin-top: 20px; /* Add space between the heading and the list */
+@keyframes fadeIn {
+  from {
+      opacity: 0; /* Start with opacity 0 */
+  }
+  to {
+      opacity: 1; /* Transition to opacity 1 */
+  }
 }

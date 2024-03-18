@@ -1,7 +1,21 @@
 <%- include('partials/header') -%>
 
-    <h1>Bienvenidos a Dichonario</h1>
-    <h1> The world's largest collection of Mexican colloquialisms. </h1>
-    <h1> Stay tuned... </h1>
+    <div class="container">
+        <h1>Bienvenidos to Dichonario</h1>
+        <div class="language-buttons">
+            <button onClick="showES()">ES</button>
+            <button onClick="showEN()">EN</button>
+        </div>
+        <div class="languages">
+            <div id="en">
+                <h1>A collection of Mexican colloquialisms.</h1>
+                <span>coming soon...</span>
+            </div>
+            <div id="es">
+                <h1>Una colección de coloquialismos mexicanos.</h1>
+                <span>próximamente</span>
+            </div>
+        </div>
+    </div>
 
 <%- include('partials/footer') -%>
