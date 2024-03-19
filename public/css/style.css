@@ -56,6 +56,33 @@ table {
 /***
 MY STYLING  
 ***/
+header {
+  margin-top: 20px;
+}
+nav ul {
+  display: flex; /* Use flexbox for horizontal layout */
+  flex-direction: row-reverse;
+}
+
+nav ul li {
+  margin-right: 20px; /* Adjust spacing between list items */
+}
+
+nav ul li:first-child {
+  margin-right: 40px; /* Remove margin from the last list item */
+}
+
+nav ul li i {
+  font-size: x-large;
+}
+nav ul li a {
+  text-decoration: none; /* Remove underline from links */
+  color: #5b2121; 
+  font-weight: bold; 
+  font-size: large;
+}
+
+
 button {
   background-color: #4CAF50;
   color: white;
