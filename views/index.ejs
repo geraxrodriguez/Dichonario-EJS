@@ -24,35 +24,45 @@
     <script src="https://kit.fontawesome.com/787cd8b7fd.js" crossorigin="anonymous"></script>
   </head>
   <body>
+
     <header>
         <nav>
             <ul>
                 <li> <i class="fa-solid fa-moon"></i> </li>
-                <li> <a href="">DichoOTD</a> </li>
-                <li> <a href="">DichoDelDia</a> </li>
+                <!-- <li> <a href="">DichoOTD</a> </li>
+                <li> <a href="">DichoDelDia</a> </li> -->
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <h1>Bienvenidos to Dichonario</h1>
-        <div class="language-buttons">
-            <button onClick="showES()">ES</button>
-            <button onClick="showEN()">EN</button>
-        </div>
-        <div class="languages">
-            <div id="en">
-                <h1>A collection of Mexican colloquialisms.</h1>
-                <span>coming soon...</span>
-            </div>
-            <div id="es">
-                <h1>Una colección de coloquialismos mexicanos.</h1>
-                <span>próximamente...</span>
-            </div>
-        </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script src="/js/main.js"></script>
-       
-</body>
-</html>
+    <main>
+      <div class="container">
+
+          <!-- <h1>Bienvenidos to Dichonario</h1> -->
+
+          <!-- buttons ES | EN -->
+          <div class="language-buttons">
+              <button id="es">ES</button>
+              <button id="en">EN</button>
+          </div>
+
+          <!-- text -->
+          <!-- <div class="languages">
+              <div id="en">
+                  <h1>A collection of Mexican colloquialisms.</h1>
+                  <span>coming soon...</span>
+              </div>
+              <div id="es">
+                  <h1>Una colección de coloquialismos mexicanos.</h1>
+                  <span>próximamente...</span>
+              </div>
+          </div> -->
+          <div class='text'>
+            <h1 id="mainText"></h1>
+            <span id="subText"></span>
+          </div>
+
+      </div>
+    </main>
+
+<%- include('partials/footer') -%>

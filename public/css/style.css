@@ -98,10 +98,6 @@ button {
 h1 {
   text-align: center;
 }
-#en, #es {
-  display: none;
-  text-align: center;
-}
 
 .container {
   display: flex;
