@@ -7,7 +7,7 @@ const cors = require('cors')
 
 require('dotenv').config({path: './config/.env'})
 
-connectDB()
+// connectDB()
 
 app.set('view engine','ejs')
 app.use(express.static('public'))
@@ -18,6 +18,13 @@ app.use(cors())
 // routes
 app.use('/', mainRoutes)
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server running on port ${process.env.PORT}`)
+// app.listen(process.env.PORT, () => {
+//     console.log(`Server running on port ${process.env.PORT}`)
+// })
+
+//Connect to the database before listening
+connectDB().then(() => {
+    app.listen(process.env.PORT, () => {
+        console.log(`Server running on port ${process.env.PORT}`)
+    })
 })
