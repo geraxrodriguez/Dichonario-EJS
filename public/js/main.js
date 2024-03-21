@@ -2,22 +2,9 @@ const moonSun = document.querySelector('.fa-solid')
 const mainHeader = document.getElementById('main-header')
 const mainText = document.getElementById('mainText')
 const buttons = document.querySelector('.language-buttons')
-let text;
+const addBtn = document.getElementById('addBtn')
 
-// moon.addEventListener('click', () => {
-//     document.body.style.backgroundColor = 'black';
-//     mainHeader.style.color = 'white'
-//     mainText.style.color = 'white'
-//     moon.style.display = 'none';
-//     sun.style.display = 'block'
-// })
-// sun.addEventListener('click', () => {
-//     document.body.style.backgroundColor = 'white';
-//     mainHeader.style.color = 'black'
-//     // mainText.style.color = 'white'
-    // moon.style.display = 'block';
-//     sun.style.display = 'none'
-// })
+let text;
 
 function toggle() {
     console.log('toggle toggle')
@@ -31,10 +18,12 @@ function toggle() {
 document.getElementById('es').addEventListener('click', () => {
     text = 'Una colección de coloquialismos mexicanos. Próximamente...';
     showText(text)
+    showAgrega()
 })
 document.getElementById('en').addEventListener('click', () => {
     text = 'A collection of Mexican colloquialisms. Coming soon...';
     showText(text)
+    showAdd()
 })
 
 function showText(text, i = 0) {
@@ -47,4 +36,11 @@ function showText(text, i = 0) {
     if (i === text.length) { return; }
     mainText.textContent += text[i];
     setTimeout(() => showText(text, (i + 1)), 55)   
+}
+
+function showAgrega() {
+    addBtn.innerText = 'Agrega un dicho'
+}
+function showAdd() {
+    addBtn.innerText = 'Add a dicho'
 }

@@ -1,19 +1,6 @@
 <%- include('partials/header') -%>
 
-    <h1> A collection of Mexican colloquialisms </h1>
-    
-    <!-- list -->
-    <ul class="dichos">
-        <% for(let i = 0; i < dichos.length; i++){ %>
-            <li class="dicho">
-                <h3><%= dichos[i].dicho %></h3
-                <br>
-                <span> Literal Meaning: <%= dichos[i].literal %></span>
-                <br>
-                <span> Actual Meaning: <%= dichos[i].actual %></span>
-            </li>
-        <% } %>
-    </ul>
+    <h1> Agrega un dicho </h1>
 
     <!-- submit form -->
     <form action="/addDicho" method="POST">
