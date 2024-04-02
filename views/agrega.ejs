@@ -1,0 +1,18 @@
+<%- include('partials/header') -%>
+    </head>
+    <body>
+        <h1> Agrega un dicho </h1>
+
+        <!-- submit form -->
+        <form action="/agregaDicho" method="POST">
+        <!-- <form> -->
+            <span>*</span>
+            <input type="text" placeholder="Dicho" name="dicho">
+            <span>*</span>
+            <input type="text" placeholder="Significado / Meaning" name="significado">
+            <input type="text" placeholder="Literal Translation" name="translation">
+            <input type="submit">
+
+        </form>
+    </body>
+<%- include('partials/footer') -%>

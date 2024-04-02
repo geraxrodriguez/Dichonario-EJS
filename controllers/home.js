@@ -1,8 +1,12 @@
 const Dicho = require('../models/Dicho')
+const validator = require('validator');
 
 module.exports = {
     getIndex: (req, res) => {
         res.render('index.ejs')
+    },
+    getFormulario: (req, res) => {
+        res.render('agrega.ejs')
     },
     getDichos: async (req, res) => {
         try {
@@ -15,19 +19,17 @@ module.exports = {
             res.status(500).send('Internal Server Error');
         }
     },
-    addDicho: async (req, res) => {
+    agregaDicho: async (req, res) => {
         try {
-            console.log('We reached the controlla')
-            await Dicho.create({ dicho: req.body.dicho, literal: req.body.literal, actual: req.body.actual })
+            console.log('We reached the agrega controlla')
+            
+            //if user doesn't provide a dicho, significado, or translation
+            //then we want to flash em
+
+            // await Dicho.create({ dicho: req.body.dicho, literal: req.body.literal, actual: req.body.actual })
             res.redirect('/')
         } catch (err) {
             console.error(err)
         }
     },
 }
-
-// app.get('/', async (req, res)=>{
-//     const expresiones = await db.collection('expresiones').find().toArray()
-//     console.log(expresiones)
-//     res.render('index.ejs', { expressions: expresiones })
-// })

@@ -5,11 +5,11 @@ const DichoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    actual: {
+    significado: {
         type: String,
         required: true,
     },
-    literal: {
+    translation: {
         type: String,
         required: true,
     },
