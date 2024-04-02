@@ -3,6 +3,12 @@
     <body>
         <h1> Agrega un dicho </h1>
 
+        <% if (messages.message) { %>
+            <p>
+                <%= messages.message %>
+            </p>
+        <% } %>
+
         <!-- submit form -->
         <form action="/agregaDicho" method="POST">
         <!-- <form> -->
