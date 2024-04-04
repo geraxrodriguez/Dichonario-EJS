@@ -7,6 +7,6 @@ router.get('/agrega', homeController.getFormulario)
 // router.get('/add', homeController.getIndex)
 
 // router for creating dicho
-router.post('/agregaDicho', homeController.agregaDicho)
+router.post('/agregaDicho', homeController.createSub)
 
 module.exports = router

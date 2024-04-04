@@ -1,3 +1,4 @@
+const Sub = require('../models/Sub')
 const Dicho = require('../models/Dicho')
 const validator = require('validator');
 
@@ -20,26 +21,29 @@ module.exports = {
         }
     },
 
-    agregaDicho: async (req, res) => {
+    createSub: async (req, res) => {
         try {
-            console.log('We reached the agrega controlla')
-            
-            //if user doesn't provide a dicho, significado, or translation
-            //then we want to flash em
-            const { dicho, significado, translation } = req.body
-
-            if (!dicho || !significado || !translation) {
+            console.log('We reached the createSub method')
+            //if user doesn't provide a dicho, significado, or translation, then FLASH EM (.ㅅ.)
+            //else, we submit submission to db and flash success message
+            const { dicho, meaning, example, variations, comments } = req.body
+            console.log(req.body)
+            if (!dicho || !meaning || !example) {
                 req.flash('message', 'Oops! Something is missing :( Please make sure you have filled out all fields')
                 res.redirect('/agrega')
             }
+            //if user provides all dicho, meaning, and example, show success message
             else {
+                await Sub.create({ 
+                    dicho: dicho, 
+                    meaning: meaning, 
+                    example: example,
+                    variations: variations,
+                    comments: comments,
+                })
                 req.flash('message', 'Success! Your submission will be reviewed by a team member :)')
                 res.redirect('/agrega')
             }
-            
-
-            // await Dicho.create({ dicho: req.body.dicho, literal: req.body.literal, actual: req.body.actual })
-            
         } catch (err) {
             console.error(err)
         }
