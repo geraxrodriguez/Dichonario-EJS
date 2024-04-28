@@ -7,10 +7,10 @@
     /> -->
 </head>
 <body>
-    <h1>You've reached admin/subs.ejs</h1>
-    <h1>test</h1>
-    <div class="container">
-        <div class="row justify-content-center mt-5">
+    <h1> You've reached admin/subs.ejs. There are <%= subs.length %> pending submissions. </h1>
+
+
+
             <ul class="row list-unstyled">
                 <% for (var i=0; i<subs.length; i++) { %>
                     <li class="col-6 justify-content-between mt-5">
@@ -20,7 +20,6 @@
                     </li>
                 <% } %>
             </ul>
-        </div>
-    </div>  
+
 
 <%- include('../partials/footer') %>

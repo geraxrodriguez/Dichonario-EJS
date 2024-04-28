@@ -4,4 +4,23 @@
     <h1>
         <%= sub.dicho %>
     </h1>
+
+    <form action="#">
+        <div>
+            <label for="dicho">Dicho</label>
+            <input type="text" id="dicho" name="dicho" value="<%= sub.dicho %>">
+        </div>
+        <div>
+            <label for="meaning">Meaning</label>
+            <input type="text" id="meaning" name="meaning" value="<%= sub.meaning %>">
+        </div>
+        <div>
+            <label for="example">Example</label>
+            <input type="text" id="example" name="example" value="<%= sub.example %>">
+        </div>
+        <div>
+            <label for="variations">Variations</label>
+            <input type="text" id="variations" name="variations" value="<%= sub.variations %>">
+        </div>
+    </form>
 <%- include ('../partials/footer') %>
