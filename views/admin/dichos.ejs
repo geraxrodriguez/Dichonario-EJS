@@ -10,4 +10,12 @@
     <h1>You've reached admin/dichos.ejs</h1>
     <h1>test</h1>
 
+    <ul>
+    <% for (let i = 0; i < dichos.length; i++) { %>
+        <li>
+            <%= dichos[i].dicho %>
+        </li>
+    <% } %>
+    </ul>
+
 <%- include('../partials/footer') %>
