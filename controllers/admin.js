@@ -23,5 +23,19 @@ module.exports = {
           console.log(err);
         }
     },
+    // GET ALL DICHOS
+    getDichos: async (req, res) => {
+      try {
+          console.log('getting dichos...')
+          // const dichos = await Dicho.find() // find method w/out args returns all documents in collection
+          // console.log(dichos.length)
+          // res.render('admin/dichos.ejs', {dichos: dichos})
+          res.render('admin/dichos.ejs')
+          // res.render('admin/subs.ejs', { subs: subs });
+      } catch (err) {
+          console.error('Error fetching dichos:', err);
+          res.status(500).send('Internal Server Error');
+      }
+  },
 }
 // views/admin/subs.ejs
