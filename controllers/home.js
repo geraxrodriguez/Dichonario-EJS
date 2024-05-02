@@ -20,7 +20,6 @@ module.exports = {
             res.status(500).send('Internal Server Error');
         }
     },
-
     createSub: async (req, res) => {
         try {
             console.log('We reached the createSub method')

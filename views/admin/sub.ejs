@@ -5,7 +5,15 @@
         <%= sub.dicho %>
     </h1>
 
-    <form action="#">
+    <!-- FLASH MESSAGE -->
+    <% if (messages.message) { %>
+        <p>
+            <%= messages.message %>
+        </p>
+    <% } %>
+
+    <!-- submitting form goes to /admin/acceptDicho -->
+    <form action="/admin/<%= id %>/acceptDicho" method="POST">
         <div>
             <label for="dicho">Dicho</label>
             <input type="text" id="dicho" name="dicho" value="<%= sub.dicho %>">
@@ -21,6 +29,11 @@
         <div>
             <label for="variations">Variations</label>
             <input type="text" id="variations" name="variations" value="<%= sub.variations %>">
+        </div>
+        <div>
+            <button type="submit">
+                Accept
+            </button>
         </div>
     </form>
 <%- include ('../partials/footer') %>
