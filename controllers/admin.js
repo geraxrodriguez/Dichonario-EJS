@@ -41,26 +41,27 @@ module.exports = {
         console.log('We reached the acceptDicho method')
         console.log(req.body)
         const id = req.params.id
-        
+
         //if user doesn't provide a dicho, significado, or translation, then FLASH EM (.ㅅ.)
         //else, we submit submission to db and flash success message
         const { dicho, meaning, example, variations, comments } = req.body
         if (!dicho || !meaning || !example) {
           req.flash('message', 'Oops! Something is missing :( Please make sure you have filled out all fields')
-          // pull id from parameter in url
           res.redirect(`/admin/subs/${id}`)
         }
+
         //if user provides all dicho, meaning, and example, show success message
         else {
-          console.log('submitting the dicho')
-        //     await Sub.create({ 
-        //         dicho: dicho, 
-        //         meaning: meaning, 
-        //         example: example,
-        //         variations: variations,
-        //         comments: comments,
-        //     })
-          // req.flash('message', 'Success! Your submission will be reviewed by a team member :)')
+            await Dicho.create({ 
+                dicho: dicho, 
+                meaning: meaning, 
+                example: example,
+                variations: variations,
+                comments: comments,
+            })
+            await Sub.deleteOne({ _id: id })
+          console.log('submission accepted :)')
+          req.flash('message', 'Submission accepted')
           res.redirect('/admin/subs')
         }
     } catch (err) {
