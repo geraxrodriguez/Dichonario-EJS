@@ -7,6 +7,6 @@ router.get('/subs/:id', adminController.editSub)
 router.get('/dichos', adminController.getDichos)
 // router.get('/admin/editdicho', adminController.editDicho)
 
-router.post('/:id/acceptDicho', adminController.acceptDicho)
+router.post('/:id/accept-sub', adminController.acceptSub)
 
 module.exports = router

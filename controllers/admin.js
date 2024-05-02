@@ -4,16 +4,15 @@ const Dicho = require('../models/Dicho')
 module.exports = {
   //GET ALL SUBMISSIONS
   getSubs: async (req, res) => {
-      // console.log("you've reached admin.getSubs()")
       try {
         const subs = await Sub.find().lean();
-        //console.log(subs)
         res.render('admin/subs.ejs', { subs: subs });
       } catch (err) {
         console.log(err);
       }
   },
-  //GET SINGLE SUBMISSION
+
+  //GET AND EDIT SUBMISSION
   editSub: async (req, res) => {
       try {
         const id = req.params.id
@@ -23,6 +22,37 @@ module.exports = {
         console.log(err);
       }
   },
+
+  // ACCEPT A DICHO SUBMISSION
+  acceptSub: async (req, res) => {
+    try {
+        const id = req.params.id
+        const { dicho, meaning, example, variations, comments } = req.body
+
+        // if we don't provide a dicho, meaning, or example, then we want to show an error message
+        if (!dicho || !meaning || !example) {
+          req.flash('message', 'Oops! Something is missing :( Please make sure you have filled out all fields')
+          res.redirect(`/admin/subs/${id}`)
+        }
+
+        // else if user provides dicho, meaning, and example, then we want to create a Dicho, delete that Sub, and show a success message
+        else {
+            await Dicho.create({ 
+                dicho: dicho, 
+                meaning: meaning, 
+                example: example,
+                variations: variations,
+                comments: comments,
+            });
+            await Sub.deleteOne({ _id: id });
+          req.flash('message', 'Submission accepted');
+          res.redirect('/admin/subs');
+        }
+    } catch (err) {
+        console.error(err)
+    }
+  },
+  
   // GET ALL DICHOS
   getDichos: async (req, res) => {
     try {
@@ -33,39 +63,6 @@ module.exports = {
     } catch (err) {
         console.error('Error fetching dichos:', err);
         res.status(500).send('Internal Server Error');
-    }
-  },
-  // ACCEPT A DICHO SUBMISSION
-  acceptDicho: async (req, res) => {
-    try {
-        console.log('We reached the acceptDicho method')
-        console.log(req.body)
-        const id = req.params.id
-
-        //if user doesn't provide a dicho, significado, or translation, then FLASH EM (.ㅅ.)
-        //else, we submit submission to db and flash success message
-        const { dicho, meaning, example, variations, comments } = req.body
-        if (!dicho || !meaning || !example) {
-          req.flash('message', 'Oops! Something is missing :( Please make sure you have filled out all fields')
-          res.redirect(`/admin/subs/${id}`)
-        }
-
-        //if user provides all dicho, meaning, and example, show success message
-        else {
-            await Dicho.create({ 
-                dicho: dicho, 
-                meaning: meaning, 
-                example: example,
-                variations: variations,
-                comments: comments,
-            })
-            await Sub.deleteOne({ _id: id })
-          console.log('submission accepted :)')
-          req.flash('message', 'Submission accepted')
-          res.redirect('/admin/subs')
-        }
-    } catch (err) {
-        console.error(err)
     }
   },
 }
