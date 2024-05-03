@@ -2,7 +2,7 @@
 </head>
 <body>
     <h1>
-        <%= sub.dicho %>
+        <%= dicho.dicho %>
     </h1>
 
     <!-- FLASH MESSAGE -->
@@ -13,31 +13,32 @@
     <% } %>
 
     <!-- submitting form goes to /admin/acceptDicho -->
-    <form action="/admin/<%= id %>/accept-sub" method="POST">
+    <form action="/admin/edit-dicho/<%= id %>/edit" method="POST">
         <div>
             <label for="dicho">Dicho</label>
-            <input type="text" id="dicho" name="dicho" value="<%= sub.dicho %>">
+            <input type="text" id="dicho" name="dicho" value="<%= dicho.dicho %>">
         </div>
         <div>
             <label for="meaning">Meaning</label>
-            <input type="text" id="meaning" name="meaning" value="<%= sub.meaning %>">
+            <input type="text" id="meaning" name="meaning" value="<%= dicho.meaning %>">
         </div>
         <div>
             <label for="example">Example</label>
-            <input type="text" id="example" name="example" value="<%= sub.example %>">
+            <input type="text" id="example" name="example" value="<%= dicho.example %>">
         </div>
         <div>
             <label for="variations">Variations</label>
-            <input type="text" id="variations" name="variations" value="<%= sub.variations %>">
+            <input type="text" id="variations" name="variations" value="<%= dicho.variations %>">
         </div>
         <div>
             <label for="comments">Comments</label>
-            <input type="text" id="comments" name="comments" value="<%= sub.variations %>">
+            <input type="text" id="comments" name="comments" value="<%= dicho.variations %>">
         </div>
         <div>
             <button type="submit">
-                Accept
+                Edit Dicho
             </button>
         </div>
     </form>
-<%- include ('../partials/footer') %>
+
+<%- include('../partials/footer') %>

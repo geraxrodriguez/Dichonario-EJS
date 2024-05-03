@@ -1,0 +1,18 @@
+<%- include ('../partials/header') %>
+</header>
+<body>
+    <h1>
+        <div><%= dicho.dicho %></div>        
+    </h1>
+    <% if (messages.message) { %>
+        <p>
+            <%= messages.message %>
+        </p>    
+    <% } %>
+    <div><%= dicho.meaning %></div>
+    <div><%= dicho.example %></div>
+    <div><%= dicho.variations %></div>
+    <div><%= dicho.comments %></div>
+
+    <a href="/admin/edit-dicho/<%= dicho._id %>">Edit</a>
+<%- include ('../partials/footer') %>

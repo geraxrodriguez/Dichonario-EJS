@@ -8,12 +8,13 @@
 </head>
 <body>
     <h1>You've reached admin/dichos.ejs</h1>
-    <h1>test</h1>
 
     <ul>
     <% for (let i = 0; i < dichos.length; i++) { %>
         <li>
-            <%= dichos[i].dicho %>
+            <a href="/admin/dichos/<%= dichos[i]._id %> ">
+                <%= dichos[i].dicho %>
+            </a>
         </li>
     <% } %>
     </ul>
