@@ -12,6 +12,12 @@
     <div><%= dicho.example %></div>
     <div><%= dicho.variations %></div>
     <div><%= dicho.comments %></div>
+
+    <p>Comments or Suggestions?</p>
+    <form action="/dichos/<%= dicho._id %>/suggestion" method="POST">
+        <textarea name="suggestion" id="suggestion" cols="30" rows="10"></textarea>
+        <button type="submit">Submit</button>
+    </form>
   
 <!-- our footer closes our <body> and <html> tags -->
 <%- include('partials/footer') -%>
