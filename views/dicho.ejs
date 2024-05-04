@@ -1,0 +1,17 @@
+<!-- our header opens our <html> and <head> and includes our <meta> tags -->
+<!-- our header does not close our <head>, left open so we can add specific stylesheets or scripts -->
+<!-- DONT FORGET TO CLOSE <head> AND OPEN <body> -->
+    <%- include('partials/header') -%>
+</head>
+<body>
+    <h1>
+        <div><%= dicho.dicho %></div>        
+    </h1>
+
+    <div><%= dicho.meaning %></div>
+    <div><%= dicho.example %></div>
+    <div><%= dicho.variations %></div>
+    <div><%= dicho.comments %></div>
+  
+<!-- our footer closes our <body> and <html> tags -->
+<%- include('partials/footer') -%>

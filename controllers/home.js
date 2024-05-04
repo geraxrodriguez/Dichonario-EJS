@@ -14,12 +14,24 @@ module.exports = {
             console.log('getting dichos...')
             const dichos = await Dicho.find() // find method w/out args returns all documents in collection
             console.log(dichos)
-            res.render('home.ejs', {dichos: dichos})
+            res.render('dichos.ejs', { dichos, })
         } catch (err) {
             console.error('Error fetching dichos:', err);
             res.status(500).send('Internal Server Error');
         }
     },
+
+    // GET SINGLE DICHO
+    getDicho: async (req, res) => {
+        try {
+            const dicho = await Dicho.findById(req.params.id) // find method w/out args returns all documents in collection
+            res.render('dicho.ejs', { dicho, })
+        } catch (err) {
+            console.error('Error fetching dichos:', err);
+            res.status(500).send('Internal Server Error');
+        }
+    },
+
     createSub: async (req, res) => {
         try {
             console.log('We reached the createSub method')

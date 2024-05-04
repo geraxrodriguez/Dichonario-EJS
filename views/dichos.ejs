@@ -1,0 +1,21 @@
+<!-- our header opens our <html> and <head> and includes our <meta> tags -->
+<!-- our header does not close our <head>, left open so we can add specific stylesheets or scripts -->
+<!-- DONT FORGET TO CLOSE <head> AND OPEN <body> -->
+<%- include('partials/header') -%>
+</head>
+<body>
+    <h1>Look at all these dichosssss</h1>
+
+    <ul>
+    <!-- ensure dichos are being passed in -->
+    <% for (let i = 0; i < dichos.length; i++) { %>
+        <li>
+            <a href="/dichos/<%= dichos[i]._id %> ">
+                <%= dichos[i].dicho %>
+            </a>
+        </li>
+    <% } %>
+    </ul>    
+  
+<!-- our footer closes our <body> and <html> tags -->
+<%- include('partials/footer') -%>

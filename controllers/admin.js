@@ -92,7 +92,6 @@ module.exports = {
   // POST METHOD FOR EDITING DICHO
   editDicho: async (req, res) => {    
     try {
-
       const id = req.params.id
       const { dicho, meaning, example, variations, comments } = req.body
       if (!dicho || !meaning || !example) {
