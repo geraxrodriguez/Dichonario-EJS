@@ -59,4 +59,24 @@ module.exports = {
             console.error(err)
         }
     },
+    postSuggestion: async (req, res) => {
+        try {
+            const id = req.params.id;
+            const { suggestion } = req.body
+
+            // Define the update object with the new property and its value
+            const update = { $set: { 
+                suggestion: 'this is a suggestion', 
+            }};
+            
+            // Update the document by ID and add the new property with its value
+            await Dicho.findByIdAndUpdate(id, update );            
+
+            console.log('done')
+            res.redirect(`/dichos/${id}`)
+            
+        } catch (err) {
+            console.error(err);
+        };
+    },
 }

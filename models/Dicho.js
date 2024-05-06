@@ -21,7 +21,7 @@ const DichoSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-})
+}, { strict: false });
 
 module.exports = mongoose.model('Dicho', DichoSchema)
 
