@@ -59,22 +59,21 @@ module.exports = {
             console.error(err)
         }
     },
+
     postSuggestion: async (req, res) => {
         try {
             const id = req.params.id;
-            const { suggestion } = req.body
+            const newSuggestion = req.body.suggestion;
+            const dicho = await Dicho.findById(id);
+            dicho.suggestions.push(newSuggestion);          // pushes our new suggestion to our existing array
 
-            // Define the update object with the new property and its value
-            const update = { $set: { 
-                suggestion: 'this is a suggestion', 
-            }};
+            const update = { $set: {                        // sets up our update 
+                suggestions: dicho.suggestions,
+            }};            
             
-            // Update the document by ID and add the new property with its value
-            await Dicho.findByIdAndUpdate(id, update );            
+            await Dicho.findByIdAndUpdate( id, update );    // updates our doc            
 
-            console.log('done')
             res.redirect(`/dichos/${id}`)
-            
         } catch (err) {
             console.error(err);
         };

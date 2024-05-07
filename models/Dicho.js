@@ -21,7 +21,7 @@ const DichoSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-}, { strict: false });
+}, { strict: false }); // allows us to create dynamic schemas, e.g. add new fields that aren't in schema
 
 module.exports = mongoose.model('Dicho', DichoSchema)
 
