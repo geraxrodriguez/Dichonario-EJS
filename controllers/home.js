@@ -62,20 +62,14 @@ module.exports = {
 
     postSuggestion: async (req, res) => {
         try {
-            const id = req.params.id;
-            const newSuggestion = req.body.suggestion;
-            const dicho = await Dicho.findById(id);
-            dicho.suggestions.push(newSuggestion);          // pushes our new suggestion to our existing array
-
-            const update = { $set: {                        // sets up our update 
-                suggestions: dicho.suggestions,
-            }};            
-            
-            await Dicho.findByIdAndUpdate( id, update );    // updates our doc            
-
-            res.redirect(`/dichos/${id}`)
+            await Dicho.updateOne(
+                { _id: req.params.id },
+                { $push: { suggestions: req.body.suggestion } }
+            );
+            res.redirect(`/dichos/${req.params.id}`)
         } catch (err) {
             console.error(err);
         };
     },
 }
+
